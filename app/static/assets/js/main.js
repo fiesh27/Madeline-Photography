@@ -399,3 +399,39 @@
 					});
 
 })(jQuery);
+
+
+
+//list of all the image file names
+var gallery = ["filler","img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
+
+//initial image load
+document.getElementById('bg').style.backgroundImage='url(../static/images/'+gallery[gallery.length - 1]+')';
+document.getElementById('bg').style.backgroundSize='cover';
+document.getElementById('bg').style.backgroundPosition="center";
+
+//a little image clock counter
+var i=0;
+
+//the actual timer function that changes the background image
+setInterval(function(){
+  //an if statement used to restart the slideshow once youve gone through all the images
+  if(i>=gallery.length - 1){
+    i=0
+  }
+  
+  document.getElementById('bg').style.opacity=0;
+
+  setTimeout(function(){
+	document.getElementById('bg').style.opacity=1;
+	document.getElementById('bg').style.backgroundSize='cover';
+	document.getElementById('bg').style.backgroundPosition="center";
+	document.getElementById('bg').style.backgroundImage='url(../static/images/'+gallery[i]+')';
+
+  },1000)
+	
+	
+
+  	i++
+
+},5000)
